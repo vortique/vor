@@ -35,7 +35,7 @@ namespace Vor
                     }
                     catch (IOException e)
                     {
-                        Console.WriteLine("Something went wrong. " + e);
+                        Console.WriteLine("Something went wrong.\n" + e);
                     }
                 }
                 else
