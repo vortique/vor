@@ -11,7 +11,7 @@ namespace Vor
             {
                 String filePath = args[0];
 
-                if (File.Exists(args[0]))
+                if (File.Exists(filePath))
                 {
                     try
                     {
@@ -42,6 +42,10 @@ namespace Vor
                 {
                     Console.WriteLine("File doesn't exists! Please ensure file's location.");
                 }
+            }
+            else
+            {
+                Console.WriteLine("Enter a file path!");
             }
         }
     }
