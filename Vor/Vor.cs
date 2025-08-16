@@ -11,41 +11,26 @@ namespace Vor
             {
                 String filePath = args[0];
 
-                if (File.Exists(filePath))
+                try
                 {
-                    try
+                    using (StreamReader sr = new StreamReader(filePath))
                     {
-                        using (StreamReader sr = new StreamReader(filePath))
-                        {
-                            String line;
+                        String line;
 
-                            while ((line = sr.ReadLine()) != null)
-                            {
-                                Console.WriteLine(line);
-                            }
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            Console.WriteLine(line);
                         }
                     }
-                    catch (FileNotFoundException)
-                    {
-                        Console.WriteLine("File doesn't exists! Please ensure file's location.");
-                    }
-                    catch (DirectoryNotFoundException)
-                    {
-                        Console.WriteLine("File's directory doesn't exists! Please ensure file's location.");
-                    }
-                    catch (IOException e)
-                    {
-                        Console.WriteLine("Something went wrong.\n" + e);
-                    }
                 }
-                else
+                catch (FileNotFoundException)
                 {
-                    Console.WriteLine("File doesn't exists! Please ensure file's location.");
+                    Console.WriteLine($"Vor ({filePath}): No such file or directory");
                 }
             }
             else
             {
-                Console.WriteLine("Enter a file path!");
+                Console.WriteLine($"Vor: No such file or directory");
             }
         }
     }
